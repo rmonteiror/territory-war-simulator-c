@@ -1,38 +1,90 @@
-# War Estruturado (C)
+# Territory War Simulator in C
 
-Projeto-base para o desafio **War Estruturado** em C.
+A C programming project that simulates a territory-based strategy game while demonstrating core software engineering and data structure concepts.
 
-Atende aos três itens do enunciado:
-1. Cadastro de territórios usando **vetor de structs** (`Territory`).
-2. **Ataque entre territórios** usando **ponteiros** e **alocação dinâmica**.
-3. **Missões estratégicas** com **ponteiro para função** para verificar condição de vitória.
+## Features
 
-## Estrutura
-- `src/main.c`
-- `src/territory.c` / `src/territory.h`
-- `src/attack.c` / `src/attack.h`
-- `src/mission.c` / `src/mission.h`
-- `Makefile`
+* Territory management using arrays of structures (`Territory`)
+* Territory attack system using pointers and dynamic memory allocation
+* Strategic mission system implemented with function pointers
+* Troop movement between territories
+* Dynamic neighborhood relationships between territories
+* Win-condition verification through customizable mission logic
 
-## Como compilar
+## Project Structure
+
+```text
+.
+├── main.c
+├── territory.c
+├── territory.h
+├── attack.c
+├── attack.h
+├── mission.c
+├── mission.h
+└── Makefile
+```
+
+## Technical Concepts Demonstrated
+
+* Structures (`struct`)
+* Pointers
+* Dynamic memory allocation (`malloc`, `realloc`, `free`)
+* Function pointers
+* Modular software design
+* Game state management
+* Memory lifecycle management
+
+## Build
+
 ```bash
 make
 ```
 
-## Como executar
+## Run
+
 ```bash
 ./war
 ```
 
-## Controles no terminal
-- `1` → mostrar mapa
-- `2` → atacar (informe `fromId toId`)
-- `3` → mover tropas (informe `fromId toId qty`)
-- `-1` → sair
+## Terminal Controls
 
-Missão padrão: **controlar 4 territórios**. Mapa de exemplo com 6 territórios e 2 jogadores (0 e 1).
+| Command | Description                        |
+| ------- | ---------------------------------- |
+| 1       | Display map                        |
+| 2       | Attack a territory (`fromId toId`) |
+| 3       | Move troops (`fromId toId qty`)    |
+| -1      | Exit the game                      |
 
-## Memória
-- Strings (`name`, `color`) alocadas com `malloc` e liberadas em `territories_destroy`.
-- Vizinhança (`neighbors`) alocada dinamicamente com `realloc` por território.
-- Missões alocadas com `malloc` e liberadas em `destroy_all`.
+## Sample Scenario
+
+The default mission requires a player to control at least **four territories**.
+
+The sample map contains:
+
+* 6 territories
+* 2 players (Player 0 and Player 1)
+
+## Memory Management
+
+The project demonstrates explicit memory management in C:
+
+* Territory names and colors are dynamically allocated using `malloc`
+* Territory neighbor lists are dynamically expanded using `realloc`
+* Mission objects are allocated dynamically and released during cleanup
+* All allocated resources are properly released before program termination
+
+## Learning Objectives
+
+This project was developed to practice:
+
+* Data structures in C
+* Dynamic memory management
+* Pointer manipulation
+* Function pointer usage
+* Modular architecture
+* Strategy game simulation concepts
+
+## License
+
+MIT License
